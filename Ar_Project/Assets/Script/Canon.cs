@@ -14,23 +14,32 @@ public class Canon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         float x = 0;
-        if(Input.GetKey("q"))
+        if(transform.position.x<0.25)
         {
-            x=0.5f;
+            if(Input.GetKey("a"))
+            {
+                x=(0.5f);
+            }  
         }
-        if(Input.GetKey("d"))
+        
+        if(transform.position.x>-0.25)
         {
-            x=-(0.5f);
+            if(Input.GetKey("d"))
+            {
+                x=-(0.5f);
+            }
         }
-        if(Input.GetKey("q") && Input.GetKey("d"))
+        
+        if(Input.GetKey("a") && Input.GetKey("d"))
         {
             x=0;
         }
         
-        float z = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(x,0,z);
+        
+        
+        Vector3 movement = new Vector3(x,0,0);
         transform.Translate(movement * speed * Time.deltaTime);
     }
 }
