@@ -15,6 +15,10 @@ public class Canon : MonoBehaviour
     void Update()
     {
 
+        
+
+
+
         float x = 0;
         if(transform.position.x<0.25)
         {
