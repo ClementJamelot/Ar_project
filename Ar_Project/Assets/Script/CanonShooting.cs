@@ -27,7 +27,18 @@ public class CanonShooting : MonoBehaviour
     void Update()
     {
         trajectoryLine.ShowTrajectoryLine(muzzle.position,muzzle.forward*shotForce/cannonBallMass);
-        if(Input.GetKeyDown(KeyCode.Space) && isWaiting == false)
+        
+    }
+
+    private IEnumerator DelayShooting()
+    {
+        yield return new WaitForSeconds(shootDelay);
+        isWaiting=false;
+    }
+
+    public void Shot()
+    {
+        if(isWaiting == false)
         {
             GameObject ball = Instantiate(cannonBall);
             ball.transform.position = muzzle.position;
@@ -40,11 +51,5 @@ public class CanonShooting : MonoBehaviour
             StartCoroutine(DelayShooting());
 
         }
-    }
-
-    private IEnumerator DelayShooting()
-    {
-        yield return new WaitForSeconds(shootDelay);
-        isWaiting=false;
     }
 }
