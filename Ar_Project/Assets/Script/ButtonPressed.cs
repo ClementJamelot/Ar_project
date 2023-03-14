@@ -6,15 +6,24 @@ public class ButtonPressed : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 {
 
 public GameObject Canon;
-public bool buttonPressed;
-public float speed = 0.6f;
-public Vector3 movement;
+[SerializeField] private GameObject Origin;
+[SerializeField] private GameObject Left;
+[SerializeField] private GameObject Right;
 
-public float x;
+private float distance_left;
+private float distance_right;
+[SerializeField]private bool buttonPressed;
+[SerializeField]private float speed = 0.6f;
+[SerializeField]private Vector3 movement;
+
+
+[SerializeField]private float x;
  
 public void Start()
 {
     buttonPressed = false;
+    distance_right = Origin.transform.position.x - Right.transform.position.x;
+    distance_left = Left.transform.position.x - Origin.transform.position.x;
 }
 public void OnPointerDown(PointerEventData eventData)
 {
@@ -37,15 +46,15 @@ void Update()
     {
         movement = new Vector3(0,0,0);
     }
-    if(Canon.transform.position.x<0.25 && Canon.transform.position.x>-0.25)
+    if(Canon.transform.position.x<distance_left && Canon.transform.position.x>-distance_right)
     {
         Canon.transform.Translate(movement * speed * Time.deltaTime);
     }
-    if(Canon.transform.position.x>0.25 && x==-0.5f)
+    if(Canon.transform.position.x>distance_left && x==-0.5f)
     {
         Canon.transform.Translate(movement * speed * Time.deltaTime);
     }
-    if(Canon.transform.position.x<-0.25 && x==0.5f)
+    if(Canon.transform.position.x<distance_right && x==0.5f)
     {
         Canon.transform.Translate(movement * speed * Time.deltaTime);
     }

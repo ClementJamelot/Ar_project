@@ -5,14 +5,17 @@ using UnityEngine.Events;
 public class ButtonPressed2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
 
-public GameObject Canon;
-public bool buttonPressed;
-public float speed = 0.6f;
+[SerializeField]private GameObject Canon;
+[SerializeField]private bool buttonPressed;
+[SerializeField] private float speed = 0.6f;
 private int angle;
 
-public Quaternion angle_movement;
+[SerializeField] private GameObject Up;
+[SerializeField] private GameObject Down;
 
-public int x;
+[SerializeField]public Quaternion angle_movement;
+
+[SerializeField]private int x;
  
 public void Start()
 {
@@ -43,20 +46,16 @@ void Update()
         angle_movement = startRotation* Quaternion.Euler(angle, 0, 0);
     }
     
-    if(Canon.transform.rotation.eulerAngles.x >50.7 && Canon.transform.rotation.eulerAngles.x < 86.7)
-    {
-        
-        Canon.transform.rotation = Quaternion.Slerp(Canon.transform.rotation, angle_movement,  Time.deltaTime * speed);
-    }
-       
-        
-    
-    
-    if(Canon.transform.rotation.eulerAngles.x <50.7 && angle==-10)
+    if(Canon.transform.rotation.x >Down.transform.rotation.x  && Canon.transform.rotation.x < Up.transform.rotation.x )
     {
         Canon.transform.rotation = Quaternion.Slerp(Canon.transform.rotation, angle_movement,  Time.deltaTime * speed);
     }
-    if(Canon.transform.rotation.eulerAngles.x > 86.7 && angle==10)
+
+    if(Canon.transform.rotation.x <Down.transform.rotation.x && angle==-10)
+    {
+        Canon.transform.rotation = Quaternion.Slerp(Canon.transform.rotation, angle_movement,  Time.deltaTime * speed);
+    }
+    if(Canon.transform.rotation.x > Up.transform.rotation.x && angle==10)
     {
         Canon.transform.rotation = Quaternion.Slerp(Canon.transform.rotation, angle_movement,  Time.deltaTime * speed);
     }
