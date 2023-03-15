@@ -51,11 +51,11 @@ void Update()
         Canon.transform.rotation = Quaternion.Slerp(Canon.transform.rotation, angle_movement,  Time.deltaTime * speed);
     }
 
-    if(Canon.transform.rotation.x <Down.transform.rotation.x && angle==-10)
+    if(Canon.transform.rotation.x <Down.transform.rotation.x && angle==10)
     {
         Canon.transform.rotation = Quaternion.Slerp(Canon.transform.rotation, angle_movement,  Time.deltaTime * speed);
     }
-    if(Canon.transform.rotation.x > Up.transform.rotation.x && angle==10)
+    if(Canon.transform.rotation.x > Up.transform.rotation.x && angle==-10)
     {
         Canon.transform.rotation = Quaternion.Slerp(Canon.transform.rotation, angle_movement,  Time.deltaTime * speed);
     }

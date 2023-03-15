@@ -4852,7 +4852,7 @@ IL_0072:
 
 IL_0101:
 	{
-		// if(Canon.transform.rotation.x <Down.transform.rotation.x && angle==-10)
+		// if(Canon.transform.rotation.x <Down.transform.rotation.x && angle==10)
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_38 = __this->___Canon_4;
 		NullCheck(L_38);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_39;
@@ -4876,7 +4876,7 @@ IL_0101:
 	}
 	{
 		int32_t L_46 = __this->___angle_7;
-		if ((!(((uint32_t)L_46) == ((uint32_t)((int32_t)-10)))))
+		if ((!(((uint32_t)L_46) == ((uint32_t)((int32_t)10)))))
 		{
 			goto IL_016e;
 		}
@@ -4906,7 +4906,7 @@ IL_0101:
 
 IL_016e:
 	{
-		// if(Canon.transform.rotation.x > Up.transform.rotation.x && angle==10)
+		// if(Canon.transform.rotation.x > Up.transform.rotation.x && angle==-10)
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_56 = __this->___Canon_4;
 		NullCheck(L_56);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_57;
@@ -4930,7 +4930,7 @@ IL_016e:
 	}
 	{
 		int32_t L_64 = __this->___angle_7;
-		if ((!(((uint32_t)L_64) == ((uint32_t)((int32_t)10)))))
+		if ((!(((uint32_t)L_64) == ((uint32_t)((int32_t)-10)))))
 		{
 			goto IL_01db;
 		}
