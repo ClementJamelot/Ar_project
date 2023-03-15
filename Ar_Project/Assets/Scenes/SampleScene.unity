@@ -658,10 +658,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1691255887}
   - component: {fileID: 1691255886}
-  - component: {fileID: 1691255888}
   - component: {fileID: 1691255891}
   - component: {fileID: 1691255890}
   - component: {fileID: 1691255889}
+  - component: {fileID: 1691255892}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -699,7 +699,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1691255888
+--- !u!114 &1691255889
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -708,27 +708,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1691255885}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dea56a9eaadd1c439095de4f9a371cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedLibrary: {fileID: 11400000, guid: 72dca1747432ad44d8e6488b2a15d92b,
-    type: 2}
-  m_MaxNumberOfMovingImages: 0
-  m_TrackedImagePrefab: {fileID: 5166329037381488045, guid: b05943c65cd5da1438d71f9f1c6cd0fa,
-    type: 3}
---- !u!114 &1691255889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1691255885}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2d2cab478fd2f246a1ac286a3374daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectToInstantiate: {fileID: 6424485212583235300, guid: 81f96babaae84f844a0cfa8c9a7a0c1e,
+  component: {fileID: 1691255885}
+  aRPlaneManager: {fileID: 0}
+  gameObjectToInstantiate: {fileID: 5166329037381488045, guid: b05943c65cd5da1438d71f9f1c6cd0fa,
     type: 3}
 --- !u!114 &1691255890
 MonoBehaviour:
@@ -737,7 +722,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1691255885}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
   m_Name: 
@@ -750,11 +735,23 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1691255885}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 1899137190454217223, guid: 98cfc8bb624667c46a04f7505e3b0934,
+  m_PlanePrefab: {fileID: 1275172079144693217, guid: 4865698f9bdaac349b1c5379ce0a9c12,
     type: 3}
-  m_DetectionMode: -1
+  m_DetectionMode: 1
+--- !u!114 &1691255892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691255885}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50802edb2fae13e49b11306c050add27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

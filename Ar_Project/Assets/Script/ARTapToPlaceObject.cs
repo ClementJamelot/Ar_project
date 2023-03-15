@@ -8,6 +8,8 @@ using UnityEngine.XR.ARSubsystems;
 [RequireComponent(typeof(ARRaycastManager))]
 public class ARTapToPlaceObject : MonoBehaviour
 {
+    [SerializeField] private GameObject component;
+    [SerializeField] private ARPlaneManager aRPlaneManager;
     public GameObject gameObjectToInstantiate;
     private GameObject spawnedObject;
     private ARRaycastManager _arRaycastManager;
@@ -16,6 +18,8 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     private void Awake() {
         _arRaycastManager = GetComponent<ARRaycastManager>();
+        aRPlaneManager=GetComponent<ARPlaneManager>();
+
     }
 
     bool TryGetTouchPosition(out Vector2 touchPosition)
@@ -36,12 +40,26 @@ public class ARTapToPlaceObject : MonoBehaviour
             var hitPose = hits[0].pose;
             if(spawnedObject == null)
             {
+                Debug.Log(hitPose.rotation.y); 
+                hitPose.rotation.y=180;
                 spawnedObject = Instantiate(gameObjectToInstantiate,hitPose.position,hitPose.rotation);
+                Destroy(component.GetComponent<ARRaycastManager>());
+                Destroy(component.GetComponent<ARTapToPlaceObject>());
+                DisplayAllARPlanes();
+
             }
             else
             {
                 spawnedObject.transform.position=hitPose.position;
             }
+        }
+    }
+
+    private void DisplayAllARPlanes()
+    {
+        foreach(var plane in aRPlaneManager.trackables)
+        {
+            plane.gameObject.SetActive(false);
         }
     }
 }

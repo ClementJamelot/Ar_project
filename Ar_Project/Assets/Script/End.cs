@@ -72,14 +72,7 @@ public class End : MonoBehaviour
             {
                 Destroy(other.gameObject);
             }
-            if(vie==2)
-            {  
-                transform.position= new Vector3(0,0.048f,-0.341f);
-            }
-            if(vie==0)
-            {  
-                transform.position= new Vector3(0,0.048f,-0.226f);
-            }
+
             
         }
     }

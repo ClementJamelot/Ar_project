@@ -24,6 +24,8 @@ public void Start()
     buttonPressed = false;
     distance_right = Origin.transform.position.x - Right.transform.position.x;
     distance_left = Left.transform.position.x - Origin.transform.position.x;
+
+    
 }
 public void OnPointerDown(PointerEventData eventData)
 {
@@ -38,26 +40,28 @@ void Update()
 {
     if(buttonPressed == true)
     {
-        
-        movement = new Vector3(x,0,0);  
+
+        movement = Canon.transform.right * x;  
        
     }
     else
     {
         movement = new Vector3(0,0,0);
     }
-    if(Canon.transform.position.x<distance_left && Canon.transform.position.x>-distance_right)
+    if(Canon.transform.position.x<Origin.transform.position.x+distance_right && Canon.transform.position.x>Origin.transform.position.x-distance_right)
+    {
+        
+        Canon.transform.Translate(movement * speed * Time.deltaTime);
+    }
+    if(Canon.transform.position.x>Origin.transform.position.x+distance_right && x==-0.5f)
     {
         Canon.transform.Translate(movement * speed * Time.deltaTime);
     }
-    if(Canon.transform.position.x>distance_left && x==-0.5f)
+    if(Canon.transform.position.x<Origin.transform.position.x-distance_right && x==0.5f)
     {
         Canon.transform.Translate(movement * speed * Time.deltaTime);
     }
-    if(Canon.transform.position.x<distance_right && x==0.5f)
-    {
-        Canon.transform.Translate(movement * speed * Time.deltaTime);
-    }
+    
     
 }
 }
