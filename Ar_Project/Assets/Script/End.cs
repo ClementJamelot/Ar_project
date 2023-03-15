@@ -15,7 +15,8 @@ public class End : MonoBehaviour
 
     [SerializeField] private GameObject Canvas;
     
-    // Start is called before the first frame update
+    //recuperer les image de la vie et les met dans un tableau
+    //recuperer les zone des batiment et les met dans un tableau
     void Start()
     {
         Canvas.SetActive(false);
@@ -32,15 +33,13 @@ public class End : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //Quand un enemy arrive dans la zone
     private void OnTriggerEnter(Collider other) {
         
         if(other.transform.tag=="lily")
-        {
+        {   // si il ne nous reste plus de vie alors on désactive la dernier vie et la derniere zone 
+            // On arrete le spawn des enemi
+            // On Désactive le Canvas qui nous permet de jouer et On active le Canvas de fin et y on affiche le score
             if(vie==0)
             {
                 Life[vie].SetActive(false);
@@ -52,14 +51,10 @@ public class End : MonoBehaviour
                 GameObject.Find("Play_Canvas").SetActive(false);
                 Canvas.SetActive(true);
                 AffichageText.text = text;
-
-
-
-
-
-
-
             }
+
+            // Si nous avons encore des vie, nous enlevons une image du hud et une zone de la ville 
+            // on réduit le nombre de vie de 1 et on détruit l'enemie
             if(vie>0)
             {
                 Life[vie].SetActive(false);
@@ -68,6 +63,7 @@ public class End : MonoBehaviour
                 Destroy(other.gameObject);
             }
             
+            //Detruit le reste des enemies qui reste
             if(vie<0)
             {
                 Destroy(other.gameObject);

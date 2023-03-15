@@ -5,13 +5,10 @@ using UnityEngine;
 public class MoveForward : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float speed = 1.0f;
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float speed = 1.0f;
 
-    // Update is called once per frame
+
+    //Fait bouger les enemie
     void Update()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * speed);

@@ -23,19 +23,20 @@ public class CanonShooting : MonoBehaviour
     public UnityEvent Onshoot;
     
 
-
+    //Montre la trajectoire
     void Update()
     {
         trajectoryLine.ShowTrajectoryLine(muzzle.position,muzzle.forward*shotForce/cannonBallMass);
         
     }
-
+    //Attente entre les tire
     private IEnumerator DelayShooting()
     {
         yield return new WaitForSeconds(shootDelay);
         isWaiting=false;
     }
-
+    //Tire si pas en recharge
+    //On crée la munition on la positionnne, on lui donne une masse et une force qui sont les meme que la trajectoire
     public void Shot()
     {
         if(isWaiting == false)
